@@ -1,0 +1,21 @@
+set_slot:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          integration: key_slot_master
+          multiple: true
+    code:
+      example: "4711"
+      selector:
+        text:
+    enabled:
+      selector:
+        boolean:
+    active_from:
+      selector:
+        datetime:
+    active_to:
+      selector:
+        datetime:

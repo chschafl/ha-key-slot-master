@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Schlüsselplatz hinzufügen",
+        "description": "Wähle ein Z-Wave-Schloss und den Benutzercode-Platz, den dieses Gerät verwalten soll. Für jeden weiteren Platz die Integration erneut hinzufügen – mehrere Plätze am selben Schloss sind möglich.",
+        "data": {
+          "lock_entity_id": "Z-Wave-Schloss",
+          "slot": "Platznummer",
+          "name": "Name (optional)"
+        },
+        "data_description": {
+          "slot": "Der Benutzercode-Platz am Schloss (1 – {max_slot}). Was dort aktuell programmiert ist, wird übernommen.",
+          "name": "Standard: \"<Schlossname> slot <Nummer>\"."
+        }
+      }
+    },
+    "error": {
+      "not_zwave_lock": "Dieses Schloss stammt nicht aus der Z-Wave-Integration.",
+      "no_user_codes": "Dieses Schloss stellt keine Benutzercode-Plätze bereit.",
+      "invalid_slot": "Dieses Schloss hat die Plätze 1 – {max_slot}.",
+      "lock_unavailable": "Der Z-Wave-Knoten des Schlosses ist nicht erreichbar. Läuft die Z-Wave-Integration?"
+    },
+    "abort": {
+      "already_configured": "Dieser Platz an diesem Schloss wird bereits verwaltet."
+    }
+  },
+  "entity": {
+    "text": {
+      "code": { "name": "Code" }
+    },
+    "switch": {
+      "enabled": { "name": "Aktiviert" }
+    },
+    "datetime": {
+      "active_from": { "name": "Aktiv ab" },
+      "active_to": { "name": "Aktiv bis" }
+    },
+    "sensor": {
+      "sync_status": {
+        "name": "Synchronisierung",
+        "state": {
+          "in_sync": "Synchron",
+          "syncing": "Wird synchronisiert",
+          "error": "Fehler – Synchronisierung fehlgeschlagen"
+        },
+        "state_attributes": {
+          "lock_entity_id": { "name": "Schloss" },
+          "slot": { "name": "Platz" },
+          "last_synced": { "name": "Zuletzt synchronisiert" },
+          "last_error": { "name": "Letzter Fehler" }
+        }
+      }
+    },
+    "binary_sensor": {
+      "access_active": { "name": "Am Schloss aktiv" }
+    },
+    "button": {
+      "clear_window": { "name": "Zeitfenster entfernen" },
+      "resync": { "name": "Neu synchronisieren" }
+    }
+  },
+  "exceptions": {
+    "invalid_code": { "message": "Der Code muss aus 4 – 10 Ziffern bestehen oder leer sein, um ihn zu entfernen." },
+    "invalid_window": { "message": "\"Aktiv bis\" muss nach \"Aktiv ab\" liegen." },
+    "unknown_device": { "message": "Gerät {device_id} ist kein Key-Slot-Master-Platz." }
+  },
+  "services": {
+    "set_slot": {
+      "name": "Schlüsselplatz setzen",
+      "description": "Ändert eine oder mehrere Eigenschaften von Schlüsselplätzen in einem Aufruf. Nicht angegebene Felder bleiben unverändert.",
+      "fields": {
+        "device_id": { "name": "Schlüsselplatz", "description": "Die zu ändernden Schlüsselplatz-Geräte." },
+        "code": { "name": "Code", "description": "4- bis 10-stellige PIN. Leer oder null entfernt den Code." },
+        "enabled": { "name": "Aktiviert", "description": "Ob der Platz Zutritt gewähren darf." },
+        "active_from": { "name": "Aktiv ab", "description": "Beginn des Zeitfensters. Null entfernt die Grenze." },
+        "active_to": { "name": "Aktiv bis", "description": "Ende des Zeitfensters. Null entfernt die Grenze." }
+      }
+    }
+  }
+}

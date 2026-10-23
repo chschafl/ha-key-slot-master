@@ -1,0 +1,13 @@
+{
+  "domain": "key_slot_master",
+  "name": "Key Slot Master",
+  "codeowners": ["@chschafl"],
+  "config_flow": true,
+  "dependencies": ["zwave_js"],
+  "documentation": "https://github.com/chschafl/ha-key-slot-master",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/chschafl/ha-key-slot-master/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

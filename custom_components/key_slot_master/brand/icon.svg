@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="g" x1="20" y1="14" x2="236" y2="248" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34C4A8"></stop>
+      <stop offset="1" stop-color="#0E8C7B"></stop>
+    </linearGradient>
+    <mask id="m">
+      <g transform="translate(43.52,43.52) scale(1.68960)">
+        <path d="M50 20 L81 49 L19 49 Z" fill="#fff" stroke="#fff" stroke-width="7" stroke-linejoin="round"></path>
+        <path d="M26 47 H74 a4 4 0 0 1 4 4 V79 a4 4 0 0 1 -4 4 H26 a4 4 0 0 1 -4 -4 V51 a4 4 0 0 1 4 -4 Z" fill="#fff"></path>
+        <circle cx="37" cy="65" r="9" fill="#000"></circle>
+        <circle cx="37" cy="65" r="3.6" fill="#fff"></circle>
+        <rect x="43" y="62.6" width="25" height="4.8" rx="1.6" fill="#000"></rect>
+        <rect x="56.5" y="65" width="4.2" height="7.6" rx="1.2" fill="#000"></rect>
+        <rect x="63.8" y="65" width="4.2" height="9.4" rx="1.2" fill="#000"></rect>
+      </g>
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="256" height="256" rx="66.56" ry="66.56" fill="url(#g)"></rect>
+  <rect x="0" y="0" width="256" height="256" fill="#fff" mask="url(#m)"></rect>
+</svg>

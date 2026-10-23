@@ -1,0 +1,19 @@
+# pytest-homeassistant-custom-component drives a deep transitive tree
+# (it depends on `homeassistant` itself), and its version is what decides
+# which Home Assistant the suite runs against. The floor keeps us on an HA at
+# or above the 2026.3.0 that hacs.json declares (brands proxy for the
+# in-package artwork). 0.13.365 pins HA 2026.9.2, which needs Python >= 3.14.2.
+pytest-homeassistant-custom-component>=0.13.365
+
+# The Z-Wave JS client library. Home Assistant's zwave_js integration pins it
+# in its own manifest; pytest-homeassistant-custom-component does not install
+# integration requirements, so the tests that import zwave_js need it here.
+zwave-js-server-python
+
+# Test runner extras — let pip pick versions compatible with pytest-ha.
+pytest
+pytest-asyncio
+pytest-cov
+
+# Lint
+ruff==0.16.7

@@ -1,0 +1,34 @@
+{
+  "entity": {
+    "text": {
+      "code": { "default": "mdi:dialpad" }
+    },
+    "switch": {
+      "enabled": { "default": "mdi:key", "state": { "off": "mdi:key-remove" } }
+    },
+    "datetime": {
+      "active_from": { "default": "mdi:calendar-start" },
+      "active_to": { "default": "mdi:calendar-end" }
+    },
+    "sensor": {
+      "sync_status": {
+        "default": "mdi:sync",
+        "state": {
+          "in_sync": "mdi:check-circle-outline",
+          "syncing": "mdi:sync",
+          "error": "mdi:sync-alert"
+        }
+      }
+    },
+    "binary_sensor": {
+      "access_active": { "default": "mdi:lock-open-variant", "state": { "off": "mdi:lock" } }
+    },
+    "button": {
+      "clear_window": { "default": "mdi:calendar-remove" },
+      "resync": { "default": "mdi:refresh" }
+    }
+  },
+  "services": {
+    "set_slot": { "service": "mdi:key-change" }
+  }
+}

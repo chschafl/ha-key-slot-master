@@ -1,0 +1,81 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a key slot",
+        "description": "Pick a Z-Wave lock and the user-code slot this device should manage. Add the integration again for every further slot — several slots on the same lock are fine.",
+        "data": {
+          "lock_entity_id": "Z-Wave lock",
+          "slot": "Slot number",
+          "name": "Name (optional)"
+        },
+        "data_description": {
+          "slot": "The user-code slot on the lock (1 – {max_slot}). Whatever is currently programmed in it is taken over.",
+          "name": "Defaults to \"<lock name> slot <number>\"."
+        }
+      }
+    },
+    "error": {
+      "not_zwave_lock": "This lock is not provided by the Z-Wave integration.",
+      "no_user_codes": "This lock does not expose any user-code slots.",
+      "invalid_slot": "This lock has slots 1 – {max_slot}.",
+      "lock_unavailable": "The lock's Z-Wave node can't be reached. Is the Z-Wave integration running?"
+    },
+    "abort": {
+      "already_configured": "This slot on this lock is already managed."
+    }
+  },
+  "entity": {
+    "text": {
+      "code": { "name": "Code" }
+    },
+    "switch": {
+      "enabled": { "name": "Enabled" }
+    },
+    "datetime": {
+      "active_from": { "name": "Active from" },
+      "active_to": { "name": "Active to" }
+    },
+    "sensor": {
+      "sync_status": {
+        "name": "Sync status",
+        "state": {
+          "in_sync": "In sync",
+          "syncing": "Syncing",
+          "error": "Error – could not sync"
+        },
+        "state_attributes": {
+          "lock_entity_id": { "name": "Lock" },
+          "slot": { "name": "Slot" },
+          "last_synced": { "name": "Last synced" },
+          "last_error": { "name": "Last error" }
+        }
+      }
+    },
+    "binary_sensor": {
+      "access_active": { "name": "Active on lock" }
+    },
+    "button": {
+      "clear_window": { "name": "Clear active window" },
+      "resync": { "name": "Resync" }
+    }
+  },
+  "exceptions": {
+    "invalid_code": { "message": "The code must be 4 – 10 digits, or empty to remove it." },
+    "invalid_window": { "message": "\"Active to\" must be later than \"Active from\"." },
+    "unknown_device": { "message": "Device {device_id} is not a Key Slot Master slot." }
+  },
+  "services": {
+    "set_slot": {
+      "name": "Set key slot",
+      "description": "Change one or more properties of key slots in a single call. Omitted fields stay as they are.",
+      "fields": {
+        "device_id": { "name": "Key slot", "description": "The key slot device(s) to change." },
+        "code": { "name": "Code", "description": "4 – 10 digit PIN. Empty or null removes the code." },
+        "enabled": { "name": "Enabled", "description": "Whether the slot may grant access." },
+        "active_from": { "name": "Active from", "description": "Start of the active window. Null removes the bound." },
+        "active_to": { "name": "Active to", "description": "End of the active window. Null removes the bound." }
+      }
+    }
+  }
+}

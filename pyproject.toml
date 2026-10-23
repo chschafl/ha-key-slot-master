@@ -1,0 +1,15 @@
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+# Defaults plus a couple of useful rule sets. Tests get their own per-file
+# carve-outs below — keeps the production code strict without forcing
+# unnatural patterns in pytest fixtures.
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# pytest-homeassistant-custom-component requires `pytest_plugins = "..."`
+# to appear before any other imports — that pattern legitimately puts
+# module-level imports below a statement.
+"tests/conftest.py" = ["E402"]
